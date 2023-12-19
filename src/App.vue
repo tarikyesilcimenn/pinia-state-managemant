@@ -12,6 +12,7 @@ export default {
   setup() {
     const moviesStore = useMoviesStore();
     const isModalOpen = computed(() => moviesStore.isAddModalOpen);
+    const moviesLength = computed(() => moviesStore.isMoviesLength);
     const openAddMovieModal = () => {
       moviesStore.isAddModalOpen = true
     }
@@ -20,7 +21,7 @@ export default {
       console.log(newVal, oldVal, 'isModalOpen')
     })
 
-    return { moviesStore, isModalOpen, openAddMovieModal };
+    return { moviesStore, isModalOpen, openAddMovieModal, moviesLength };
   },
 };
 </script>
@@ -28,6 +29,7 @@ export default {
 <template>
   <div class="body">
     <div class="nav">
+      <div>Aktif Listeli {{ moviesLength }} film bulunmaktadır</div>
       <button class="addMovie" @click="openAddMovieModal">Film Ekle</button>
     </div>
     <AddFilmModal :isOpen="isModalOpen"/>
@@ -36,16 +38,20 @@ export default {
   </div>
 </template>
 
-<style scoped>
+<style>
+body{
+  margin: 0 !important;
+  padding: 0 !important;
+}
 .body {
   display: flex;
   flex-direction: column;
-  background-color: grey;
+  background-color: rgb(236, 234, 234);
   min-height: 100vh;
 }
 .nav {
   display: flex;
-  justify-content: end;
+  justify-content: space-between;
 }
 .addMovie {
   padding: 10px 15px;

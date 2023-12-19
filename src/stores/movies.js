@@ -13,6 +13,17 @@ export const useMoviesStore = defineStore('movies', {
     }
   ],
     isAddModalOpen: false
-  })
+  }),
+  getters:{
+    isMoviesLength: (state) => {
+      return state.movies.length
+    }
+  },
+  actions:{
+    removeMovie(id){
+      this.movies = this.movies.filter((item) => item.id !== id)
+    }
+  }
+  
 
 })
