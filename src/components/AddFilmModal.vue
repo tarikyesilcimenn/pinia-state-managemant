@@ -39,7 +39,7 @@ export default {
 </script>
 
 <template>
-  <div v-if="isOpen" class="modal">
+  <div v-show="isOpen" class="modal">
     <div class="box">
       <label for="">Banner Url: </label>
       <input type="text" v-model="currentBannerUrl" />

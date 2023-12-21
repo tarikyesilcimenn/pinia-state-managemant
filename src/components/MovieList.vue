@@ -16,8 +16,6 @@ export default {
         const store = useMoviesStore()
         const movies = computed(() => store.movies)
 
-        
-
         const remove = (id) => {
             // store.movies = store.movies.filter((i) => i.id !== id)
             store.removeMovie(id)

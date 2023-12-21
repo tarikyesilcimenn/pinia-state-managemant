@@ -42,11 +42,12 @@ export default {
 body{
   margin: 0 !important;
   padding: 0 !important;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  background-color:white;
 }
 .body {
   display: flex;
   flex-direction: column;
-  background-color: rgb(236, 234, 234);
   min-height: 100vh;
 }
 .nav {
@@ -56,7 +57,7 @@ body{
 .addMovie {
   padding: 10px 15px;
   color: white;
-  background-color: rgb(71, 242, 117);
+  background-color: rgb(66, 216, 106);
   border: 0;
   border-radius: 12px;
 }
