@@ -22,6 +22,9 @@ export default {
         movieName: currentMovieName.value,
       });
       console.log(store.movies, "tarıkk");
+      currentBannerUrl.value = ""
+      currentMovieName.value = ""
+      store.isAddModalOpen = false
     };
     watch(currentMovieName, (newVal, oldVal) => {
       console.log(newVal, oldVal, "tarık");
@@ -39,7 +42,7 @@ export default {
 </script>
 
 <template>
-  <div v-show="isOpen" class="modal">
+  <div v-if="isOpen" class="modal">
     <div class="box">
       <label for="">Banner Url: </label>
       <input type="text" v-model="currentBannerUrl" />
@@ -49,8 +52,8 @@ export default {
       <input type="text" v-model="currentMovieName" />
     </div>
     <div class="modal-footer">
-      <button class="cancel" @click="closeModal">Cancel</button>
-      <button class="save" @click="saveMovie">Save</button>
+      <button class="cancel" @click="closeModal">Vazgeç</button>
+      <button class="save" @click="saveMovie">Kaydet</button>
     </div>
   </div>
 </template>
@@ -66,7 +69,7 @@ export default {
   position: relative;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, 50%);
+  transform: translate(-50%, -237%);
   box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.5);
   border-radius: 12px;
 }
@@ -87,9 +90,13 @@ input:focus {
   flex-direction: row;
   color: black;
   justify-content: center;
+  margin-bottom: 10px;
 }
 .box label {
-  min-width: 90px !important;
+  min-width: 120px !important;
+}
+.box input {
+  min-height: 25px;
 }
 .modal-footer {
   display: flex;
